@@ -7,24 +7,24 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class FruitAdapter(private val fruitList: List<Image>) : RecyclerView.Adapter<FruitAdapter.ViewHolder>() {
+class GalleryAdapter(private val imageList: List<Image>) : RecyclerView.Adapter<GalleryAdapter.ViewHolder>() {
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
-        val fruitImage: ImageView = view.findViewById(R.id.fruitImage)
-        val fruitName: TextView = view.findViewById(R.id.fruitName)
+        val image: ImageView = view.findViewById(R.id.image)
+        val name: TextView = view.findViewById(R.id.name)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.fruit_item, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.gallery_item, parent, false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val fruit = fruitList[position]
-        holder.fruitImage.setImageResource(fruit.imageId)
-        holder.fruitName.text = fruit.name
+        val image = imageList[position]
+        holder.image.setImageResource(image.imageId)
+        holder.name.text = image.name
     }
 
     override fun getItemCount(): Int {
-        return fruitList.size
+        return imageList.size
     }
 }
